@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from 'axios'
 
 const Add = (props) => {
   let emptyDeck = { title: "", subject: "", comments: "" };
@@ -10,8 +11,12 @@ const Add = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.handleCreate(deck);
-  };
+      axios.post("http://localhost:8000/api/decks", deck).then((response) => {
+        console.log(response);
+        props.getDecks();
+      });
+    };
+  
   return (
     <>
       <form className="deckAdd" onSubmit={handleSubmit}>
@@ -45,5 +50,5 @@ const Add = (props) => {
       </form>
     </>
   );
-};
+  }
 export default Add;
