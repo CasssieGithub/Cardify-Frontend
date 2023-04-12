@@ -10,24 +10,18 @@ function App() {
   // ============================================================
   //                        CREATE FUNCTION
   // ============================================================
-  const handleCreate = (addDeck) => {
-    axios.post("http://localhost:8000/api/decks", addDeck).then((response) => {
-      console.log(response);
-      getDecks();
-    });
-  };
+
   // ============================================================
   //                        READ FUNCTION
   // ============================================================
   const getDecks = () => {
-    axios
-      .get("http://localhost:8000/api/decks")
-      .then(
-        (response) => setDecks(response.data),
-        (err) => console.error(err)
-      )
-      .catch((error) => console.error(error));
-  };
+    axios.get('http://localhost:8000/api/decks').then((response) => {
+      setDecks(response.data)
+    })
+  }
+  useEffect(() => {
+    getDecks()
+  }, [])
   // ============================================================
   //                        DELETE FUNCTION
   // ============================================================
@@ -78,7 +72,7 @@ function App() {
           </div>
         </div>
         <div className="workSpace">
-          <Add handleCreate={handleCreate} />
+          <Add getDecks={getDecks} />
           <div className="decks">
             {decks.map((deck) => {
               return (
