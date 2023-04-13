@@ -3,25 +3,28 @@ import axios from "axios";
 import Add from "./components/Add";
 import Edit from "./components/Edit";
 import "./App.css";
+import { GoogleLogin } from "@react-oauth/google";
+
+const googleLogin = async (accesstoken) => {
+  let res = await axios.post("http://localhost:8000/rest-auth/google/", {
+    access_token: accesstoken,
+  });
+
+  return res.data.key;
+};
 
 function App() {
+  const [token, setToken] = useState(null);
   let [decks, setDecks] = useState([]);
 
-  // ============================================================
-  //                        CREATE FUNCTION
-  // ============================================================
-
-  // ============================================================
-  //                        READ FUNCTION
-  // ============================================================
   const getDecks = () => {
-    axios.get('http://localhost:8000/api/decks').then((response) => {
-      setDecks(response.data)
-    })
-  }
+    axios.get("http://localhost:8000/api/decks").then((response) => {
+      setDecks(response.data);
+    });
+  };
   useEffect(() => {
-    getDecks()
-  }, [])
+    getDecks();
+  }, []);
   // ============================================================
   //                        DELETE FUNCTION
   // ============================================================
@@ -46,7 +49,21 @@ function App() {
 
   return (
     <>
-      <h1>Welcome to Cardify!</h1>
+      {!token ? (
+        <GoogleLogin
+          onSuccess={(credentialResponse) => {
+            googleLogin(credentialResponse.credential).then((token) => {
+              setToken(token);
+            });
+          }}
+          onError={() => {
+            console.log("Login Failed");
+          }}
+        />
+      ) : (
+        <>Hi im logged in</>
+      )}
+      ; ;<h1>Welcome to Cardify!</h1>
       <div className="fullbody">
         <div className="sidebar">
           <div className="profile">
