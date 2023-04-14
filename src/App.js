@@ -4,6 +4,8 @@ import Add from "./components/Add";
 import Edit from "./components/Edit";
 import "./App.css";
 import { GoogleLogin } from "@react-oauth/google";
+import Card from "./components/Card";
+import AddCard from "./components/AddCard";
 
 const googleLogin = async (accesstoken) => {
   let res = await axios.post("http://localhost:8000/rest-auth/google/", {
@@ -17,14 +19,22 @@ function App() {
   const [token, setToken] = useState(null);
   let [decks, setDecks] = useState([]);
 
+  // ============================================================
+  //                        READ FUNCTION
+  // ============================================================
   const getDecks = () => {
     axios.get("http://localhost:8000/api/decks").then((response) => {
       setDecks(response.data);
     });
   };
+  axios.get("http://localhost:8000/api/decks").then((response) => {
+    setDecks(response.data);
+  });
+
   useEffect(() => {
     getDecks();
   }, []);
+
   // ============================================================
   //                        DELETE FUNCTION
   // ============================================================
@@ -63,7 +73,10 @@ function App() {
       ) : (
         <>Hi im logged in</>
       )}
-      ; ;<h1>Welcome to Cardify!</h1>
+
+      <div className="header">
+        ; ;<h1>Welcome to Cardify!</h1>
+      </div>
       <div className="fullbody">
         <div className="sidebar">
           <div className="profile">
@@ -105,10 +118,11 @@ function App() {
               );
             })}
           </div>
+          {/* CARDS SECTION */}
+          <AddCard />
         </div>
       </div>
     </>
   );
 }
-
 export default App;
