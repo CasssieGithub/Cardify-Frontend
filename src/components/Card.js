@@ -38,7 +38,6 @@ function Card(props) {
         <div className="card-front">
           <p>{props.front}</p>
         </div>
-
         {/* Card back */}
         <div className="card-back">
           <p>{props.back}</p>

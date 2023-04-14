@@ -30,7 +30,15 @@ function App() {
   return (
     <div className="App cardAdd">
       <h3>Add a New Card</h3>
-      <form className="AddCardForm" onSubmit={handleSubmit}>
+      <form
+        className="AddCardForm"
+        onSubmit={handleSubmit}
+        enctype="multipart/form-data"
+      >
+        <label>
+          Deck:
+          <input type="text" name="deck" placeholder="Enter deck here" />
+        </label>
         <label>
           Question:
           <input type="text" name="front" placeholder="Enter question here" />
@@ -38,6 +46,10 @@ function App() {
         <label>
           Answer:
           <input type="text" name="back" placeholder="Enter answer here" />
+        </label>
+        <label>
+          Image:
+          <input type="image" name="image" placeholder="Enter answer here" />
         </label>
         <button type="submit">Add Card</button>
       </form>

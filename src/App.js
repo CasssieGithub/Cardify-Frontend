@@ -3,6 +3,7 @@ import axios from "axios";
 import Add from "./components/Add";
 import Edit from "./components/Edit";
 import "./App.css";
+import "./components/Card.css";
 import Card from "./components/Card";
 import AddCard from "./components/AddCard";
 
