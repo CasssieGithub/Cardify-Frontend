@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from "react";
 import anime from "animejs";
+import axios from 'axios'
 
 function Card(props) {
   const [playing, setPlaying] = useState(false);
