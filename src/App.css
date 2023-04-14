@@ -37,15 +37,15 @@
   }
 }
 
-.header{
+.header {
   width: 100%;
   background-color: #b6b6b6;
   padding: 2%;
   text-align: center;
   color: #fff;
 }
-.deckAdd{
-  background-color: rgba(97,108,134, 0.2);
+.deckAdd {
+  background-color: rgba(97, 108, 134, 0.2);
   width: 29%;
   min-width: 200px;
   padding: 2%;
@@ -70,7 +70,7 @@
   width: 10%;
   min-width: 150px;
   min-height: 90vh;
-  background-color: rgba(97,108,134, 0.2);
+  background-color: rgba(97, 108, 134, 0.2);
   padding: 2%;
   display: flex;
   flex-direction: column;
@@ -83,6 +83,6 @@
   background-position: 0 0, 50px 50px;
   background-size: 25px 25px;
 }
-.fullbody{
+.fullbody {
   display: flex;
 }
