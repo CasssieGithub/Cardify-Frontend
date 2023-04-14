@@ -1,11 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import anime from "animejs";
 
 function Card(props) {
   const [playing, setPlaying] = useState(false);
-  const [frontText, setFrontText] = useState("");
-  const [backText, setBackText] = useState("");
+  const [cards, setCards] = useState([])
 
+  const getCards = () => {
+    axios.get('http://localhost:8000/cards').then((response) => {
+      setCards(response.data)
+    })
+  }
+useEffect(() => {
+  getCards()
+}, [])
   const handleClick = () => {
     if (playing) return;
 
@@ -23,29 +30,23 @@ function Card(props) {
     });
   };
 
-  const handleFrontChange = (event) => {
-    setFrontText(event.target.value);
-  };
-
-  const handleBackChange = (event) => {
-    setBackText(event.target.value);
-  };
-
+  
+  { cards.map((card) => {
   return (
     <div className="card-container">
-      <div id="card" className={`card ${props.id}`} onClick={handleClick}>
+      <div id="card" className={`card ${card.id}`} onClick={handleClick}>
         {/* Card front */}
         <div className="card-front">
-          <p>{props.front}</p>
+          <p>{card.question}</p>
         </div>
 
         {/* Card back */}
         <div className="card-back">
-          <p>{props.back}</p>
+          <p>{card.answer}</p>
         </div>
       </div>
     </div>
   );
+})}
 }
-
 export default Card;

@@ -2,29 +2,18 @@ import React, { useState } from "react";
 import Card from "./Card";
 
 function App() {
-  const [cards, setCards] = useState([]);
+  const [card, setCard] = useState({});
+
+  const handleChange = (event) => {
+    setCard({...card, [event.target.name]: event.target.value})
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    const front = event.target.front.value;
-    const back = event.target.back.value;
-
-    setCards([...cards, { front, back }]);
-    event.target.reset();
-  };
-
-  const renderCards = () => {
-    return cards.map((card, index) => {
-      return (
-        <Card
-          key={index}
-          front={card.front}
-          back={card.back}
-          id={`card-${index}`}
-        />
-      );
-    });
+    setCard(card)
+    axio.post('http://localhost:8000/cards', card).then((response) => {
+      console.log(response.data)
+    })
   };
 
   return (
@@ -33,15 +22,17 @@ function App() {
       <form className="AddCardForm" onSubmit={handleSubmit}>
         <label>
           Question:
-          <input type="text" name="front" placeholder="Enter question here" />
+          <input type="text" name="question" placeholder="Enter question here" onChange={handleChange} />
         </label>
         <label>
           Answer:
-          <input type="text" name="back" placeholder="Enter answer here" />
+          <input type="text" name="answer" placeholder="Enter answer here" onChange={handleChange} />
         </label>
+        <label htmlFor='image'>Image: </label>
+        <input type='text' name='image' placeholder='image adress' onChange={handleChange}/>
         <button type="submit">Add Card</button>
       </form>
-      {renderCards()}
+      <Card/>
     </div>
   );
 }
