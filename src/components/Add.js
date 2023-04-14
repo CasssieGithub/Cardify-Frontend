@@ -31,12 +31,12 @@ const Add = (props) => {
         <br />
         <br />
         <label htmlFor="subject">Subject: </label>
-        <input
-          type="text"
-          name="subject"
-          value={deck.subject}
-          onChange={handleChange}
-        />
+        <select name="subject" onChange={handleChange}>
+          <option value='science'>Science</option>
+          <option value='social'>Social Studies</option>
+          <option value='math'>Math</option>
+          <option value='english'>English</option>
+        </select>
         <br />
         <br />
         <label htmlFor="comments">Comments: </label>
