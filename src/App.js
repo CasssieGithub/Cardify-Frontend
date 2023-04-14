@@ -60,68 +60,70 @@ function App() {
   return (
     <>
       {!token ? (
-        <GoogleLogin
-          onSuccess={(credentialResponse) => {
-            googleLogin(credentialResponse.credential).then((token) => {
-              setToken(token);
-            });
-          }}
-          onError={() => {
-            console.log("Login Failed");
-          }}
-        />
+        <div className="googleSignInPage">
+          <GoogleLogin
+            onSuccess={(credentialResponse) => {
+              googleLogin(credentialResponse.credential).then((token) => {
+                setToken(token);
+              });
+            }}
+            onError={() => {
+              console.log("Login Failed");
+            }}
+          />
+        </div>
       ) : (
-        <>Hi im logged in</>
-      )}
-
-      <div className="header">
-        ; ;<h1>Welcome to Cardify!</h1>
-      </div>
-      <div className="fullbody">
-        <div className="sidebar">
-          <div className="profile">
-            <img src="" id=""></img>
-            <h3>User name</h3>
-            <h6>edit profile</h6>
+        <>
+          <div className="header">
+            <h1>Welcome to Cardify!</h1>
           </div>
-          <hr />
-          <div className="decksSection">
-            <div className="deckSidebar">
-              <h4>Deck Name Here</h4>
-            </div>
-            <div className="deckSidebar">
-              <h4>Deck Name Here</h4>
-            </div>
-            <div className="deckSidebar">
-              <h4>Deck Name Here</h4>
-            </div>
-          </div>
-          <hr />
-          <div className="seachSection">
-            <h4>Search Bar Section</h4>
-          </div>
-        </div>
-        <div className="workSpace">
-          <Add getDecks={getDecks} />
-          <div className="decks">
-            {decks.map((deck) => {
-              return (
-                <div className="deck" key={deck.id}>
-                  <h4>Title: {deck.title}</h4>
-                  <h4>Subject: {deck.subject}</h4>
-                  <h4>Comments: {deck.comments}</h4>
-                  <Edit handleUpdate={handleUpdate} deck={deck} />
-                  <button onClick={handleDelete} value={deck.id}>
-                    X
-                  </button>
+          <div className="fullbody">
+            <div className="sidebar">
+              <div className="profile">
+                <img src="" id=""></img>
+                <h3>User name</h3>
+                <h6>edit profile</h6>
+              </div>
+              <hr />
+              <div className="decksSection">
+                <div className="deckSidebar">
+                  <h4>Deck Name Here</h4>
                 </div>
-              );
-            })}
+                <div className="deckSidebar">
+                  <h4>Deck Name Here</h4>
+                </div>
+                <div className="deckSidebar">
+                  <h4>Deck Name Here</h4>
+                </div>
+              </div>
+              <hr />
+              <div className="seachSection">
+                <h4>Search Bar Section</h4>
+              </div>
+            </div>
+            <div className="workSpace">
+              <Add getDecks={getDecks} />
+              <div className="decks">
+                {decks.map((deck) => {
+                  return (
+                    <div className="deck" key={deck.id}>
+                      <h4>Title: {deck.title}</h4>
+                      <h4>Subject: {deck.subject}</h4>
+                      <h4>Comments: {deck.comments}</h4>
+                      <Edit handleUpdate={handleUpdate} deck={deck} />
+                      <button onClick={handleDelete} value={deck.id}>
+                        X
+                      </button>
+                    </div>
+                  );
+                })}
+              </div>
+              {/* CARDS SECTION */}
+              <AddCard />
+            </div>
           </div>
-          {/* CARDS SECTION */}
-          <AddCard />
-        </div>
-      </div>
+        </>
+      )}
     </>
   );
 }
