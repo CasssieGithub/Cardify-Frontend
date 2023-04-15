@@ -11,12 +11,12 @@ const editCard = () => {
     }
     const handleSubmit = (event) => {
         event.preventDefault()
-        axios.put(`http://localhost:8000/cards/${card.id}`, card).then((response) => {
+        axios.put(`http://localhost:8000/api/cards/${card.id}`, card).then((response) => {
             getCards();
         })
     }
     const handleDelete = (event) => [
-        axios.delete(`http://localhost:8000/cards/${card.id}`).then((response) => {
+        axios.delete(`http://localhost:8000/api/cards/${card.id}`).then((response) => {
             getCards();
         })
     ]
@@ -24,7 +24,7 @@ const editCard = () => {
         setEdit(!edit)
     }
     const getCards = () => {
-      axios.get('http://localhost:8000/cards').then((response) => {
+      axios.get('http://localhost:8000/api/cards').then((response) => {
         setCards(response.data)
       })
     }

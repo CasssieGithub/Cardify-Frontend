@@ -7,7 +7,7 @@ function Card(props) {
   const [cards, setCards] = useState([])
 
   const getCards = () => {
-    axios.get('http://localhost:8000/cards').then((response) => {
+    axios.get('http://localhost:8000/api/cards').then((response) => {
       setCards(response.data)
     })
   }

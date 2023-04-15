@@ -2,17 +2,22 @@ import React, { useState } from "react";
 import Card from "./Card";
 import axios from 'axios'
 
-function App() {
+const AddCard = (props) =>  {
   const [card, setCard] = useState({});
+  const [deck, setDeck] = useState({})
 
   const handleChange = (event) => {
     setCard({...card, [event.target.name]: event.target.value})
   }
-
+  const handleDeck = (event) => {
+    axios.get('http://localhost:8000/api/decks/' + props.deck.id).then((response) => {
+      setDeck(response.data)
+    })
+  }
   const handleSubmit = (event) => {
     event.preventDefault();
     setCard(card)
-    axio.post('http://localhost:8000/cards', card).then((response) => {
+    axios.post('http://localhost:8000/api/cards', card).then((response) => {
       console.log(response.data)
     })
   };
@@ -31,6 +36,7 @@ function App() {
         </label>
         <label htmlFor='image'>Image: </label>
         <input type='text' name='image' placeholder='image adress' onChange={handleChange}/>
+        {/* <input type='text' name='deck' value={props.deck} style={{display: 'none'}}/> */}
         <button type="submit">Add Card</button>
       </form>
       <Card/>
@@ -38,4 +44,4 @@ function App() {
   );
 }
 
-export default App;
+export default AddCard;

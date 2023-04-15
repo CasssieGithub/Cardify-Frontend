@@ -3,33 +3,27 @@ import axios from "axios";
 import Add from "./components/Add";
 import Edit from "./components/Edit";
 import "./App.css";
-import { GoogleLogin } from "@react-oauth/google";
+// import { GoogleLogin } from "@react-oauth/google";
 import Card from "./components/Card";
 import AddCard from "./components/AddCard";
 
-const googleLogin = async (accesstoken) => {
-  let res = await axios.post("http://localhost:8000/rest-auth/google/", {
-    access_token: accesstoken,
-  });
+// const googleLogin = async (accesstoken) => {
+//   let res = await axios.post("http://localhost:8000/rest-auth/google/", {
+//     access_token: accesstoken,
+//   });
 
-  return res.data.key;
-};
+//   return res.data.key;
+// };
 
 function App() {
-  const [token, setToken] = useState(null);
+  // const [token, setToken] = useState(null);
   let [decks, setDecks] = useState([]);
 
-  // ============================================================
-  //                        READ FUNCTION
-  // ============================================================
   const getDecks = () => {
     axios.get("http://localhost:8000/api/decks").then((response) => {
       setDecks(response.data);
     });
   };
-  axios.get("http://localhost:8000/api/decks").then((response) => {
-    setDecks(response.data);
-  });
 
   useEffect(() => {
     getDecks();
@@ -59,7 +53,7 @@ function App() {
 
   return (
     <>
-      {!token ? (
+      {/* {!token ? (
         <div className="googleSignInPage">
           <GoogleLogin
             onSuccess={(credentialResponse) => {
@@ -73,7 +67,7 @@ function App() {
           />
         </div>
       ) : (
-        <>
+        <> */}
           <div className="header">
             <h1>Welcome to Cardify!</h1>
           </div>
@@ -105,7 +99,7 @@ function App() {
               <Add getDecks={getDecks} />
               <div className="decks">
                 {decks.map((deck) => {
-                  return (
+                  return (<>
                     <div className="deck" key={deck.id}>
                       <h4>Title: {deck.title}</h4>
                       <h4>Subject: {deck.subject}</h4>
@@ -115,18 +109,20 @@ function App() {
                         X
                       </button>
                     </div>
+                    <AddCard deck={deck} getDecks={getDecks}/>
+                    </>
                   );
                 })}
               </div>
               {/* CARDS SECTION */}
-              <AddCard />
+              
             </div>
           </div>
         </>
       )}
-    </>
-  );
-}
+  //   </>
+  // );
+// }
 export default App;
 
 // updated
