@@ -36,7 +36,7 @@ const AddCard = (props) =>  {
         </label>
         <label htmlFor='image'>Image: </label>
         <input type='text' name='image' placeholder='image adress' onChange={handleChange}/>
-        {/* <input type='text' name='deck' value={props.deck} style={{display: 'none'}}/> */}
+        <input type='text' name='deck' value={props.deck} style={{display: 'none'}}/>
         <button type="submit">Add Card</button>
       </form>
       <Card/>
