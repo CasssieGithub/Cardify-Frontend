@@ -1,72 +1,64 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 
-const AddCard = (props) => {
-  const [card, setCard] = useState({});
-  const [deck, setDeck] = useState({});
+function AddCard(props) {
+  const [deck, setDeck] = useState(props.decks[0].id);
+  const [question, setQuestion] = useState("");
+  const [answer, setAnswer] = useState("");
+  const [image, setImage] = useState("");
 
-  const handleChange = (event) => {
-    setCard({ ...card, [event.target.name]: event.target.value });
-  };
-  const handleDeck = (event) => {
-    axios
-      .get("http://localhost:8000/api/decks/" + props.deck.id)
-      .then((response) => {
-        setDeck(response.data);
-      });
-  };
   const handleSubmit = (event) => {
     event.preventDefault();
-    setCard(card);
-    axios.post("http://localhost:8000/api/cards", card).then((response) => {
-      console.log(response.data);
-    });
+    const card = { deck, question, answer, image };
+    props.onSubmit(card);
   };
 
   return (
-    <div className="App cardAdd">
-      <h3>Add a New Card</h3>
-      <form
-        className="AddCardForm"
-        onSubmit={handleSubmit}
-        enctype="multipart/form-data"
-      >
-        {/* <label>
-          Deck:
-          <input type="text" name="deck" placeholder="Enter deck here" />
-        </label> */}
-        <label>
-          Question:
-          <input
-            type="text"
-            name="question"
-            placeholder="Enter question here"
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Answer:
-          <input
-            type="text"
-            name="answer"
-            placeholder="Enter answer here"
-            onChange={handleChange}
-          />
-        </label>
-
-        <label htmlFor="image">Image: </label>
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="deck">Deck:</label>
+        <select
+          id="deck"
+          value={deck}
+          onChange={(event) => setDeck(event.target.value)}
+        >
+          {props.decks.map((deck) => (
+            <option key={deck.id} value={deck.id}>
+              {deck.title}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div>
+        <label htmlFor="question">Question:</label>
         <input
+          id="question"
           type="text"
-          name="image"
-          placeholder="image adress"
-          onChange={handleChange}
+          value={question}
+          onChange={(event) => setQuestion(event.target.value)}
         />
-        {/* <input type='text' name='deck' value={props.deck} style={{display: 'none'}}/> */}
-
-        <button type="submit">Add Card</button>
-      </form>
-    </div>
+      </div>
+      <div>
+        <label htmlFor="answer">Answer:</label>
+        <input
+          id="answer"
+          type="text"
+          value={answer}
+          onChange={(event) => setAnswer(event.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="image">Image:</label>
+        <input
+          id="image"
+          type="text"
+          value={image}
+          onChange={(event) => setImage(event.target.value)}
+        />
+      </div>
+      <button type="submit">Save</button>
+    </form>
   );
-};
+}
 
 export default AddCard;

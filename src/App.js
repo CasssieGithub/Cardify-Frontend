@@ -2,14 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Add from "./components/Add";
 import Edit from "./components/Edit";
-import "./App.css";
 import Deck from "./components/Deck";
-
-// import { GoogleLogin } from "@react-oauth/google";
-
-import "./components/Card.css";
 import Card from "./components/Card";
 import AddCard from "./components/AddCard";
+import "./components/Card.css";
+import "./App.css";
 
 // const googleLogin = async (accesstoken) => {
 //   let res = await axios.post("http://localhost:8000/rest-auth/google/", {
@@ -85,13 +82,9 @@ const App = () => {
                   <h4>Title: {deck.title}</h4>
                   <h4>Subject: {deck.subject}</h4>
                   <h4>Comments: {deck.comments}</h4>
-                  <Edit handleUpdate={handleUpdate} deck={deck} />
-                  <button onClick={handleDelete} value={deck.id}>
-                    X
-                  </button>
+                  <Edit deck={deck} getDecks={getDecks} />
                 </div>
                 <AddCard deck={deck} getDecks={getDecks} />
-                <Card />
               </>
             );
           })}
