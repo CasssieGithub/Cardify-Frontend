@@ -32,21 +32,24 @@ useEffect(() => {
   };
 
   
-  { cards.map((card) => {
+  {cards.map((card) => {
   return (
-    <div className="card-container">
-      <div id="card" className={`card ${card.id}`} onClick={handleClick}>
-        {/* Card front */}
-        <div className="card-front">
-          <p>{card.question}</p>
-        </div>
-
-        {/* Card back */}
-        <div className="card-back">
-          <p>{card.answer}</p>
-        </div>
-      </div>
+    <div>
+      <h1>{card.question}</h1>
     </div>
+    // <div className="card-container">
+    //   <div id="card" className={`card ${card.id}`} onClick={handleClick}>
+    //     {/* Card front */}
+    //     <div className="card-front">
+    //       <p>{card.question}</p>
+    //     </div>
+
+    //     {/* Card back */}
+    //     <div className="card-back">
+    //       <p>{card.answer}</p>
+    //     </div>
+    //   </div>
+    // </div>
   );
 })}
 }
