@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from 'axios'
 
 const AddCard = (props) =>  {
-  const [card, setCard] = useState({});
-  const [deck, setDeck] = useState(props.deck.id)
+  const key = props.deck.id
+  const [card, setCard] = useState({question: '', answer: '', image: '', deck : key});
+  // const [deck, setDeck] = useState(props.deck)
 
   const handleChange = (event) => {
     setCard({...card, [event.target.name]: event.target.value})
+   
   }
-  
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     setCard(card)
@@ -27,7 +30,10 @@ const AddCard = (props) =>  {
         enctype="multipart/form-data"
       >
       
-       <select name='deck' value={props.deck} style={{display: 'none'}}><option key={props.deck.id} value={props.deck.id} style={{display: 'none'}}></option></select>
+       {/* <select name='deck' value={props.deck.id} onChange={handleDeck}>
+        <option value={props.deck.id}>Deck {props.deck.title}</option>
+        </select> */}
+       {/* <input name='deck' style={{display: 'none'}} value={props.deck.id}/> */}
         <label>
           Question:
           <input type="text" name="question" placeholder="Enter question here" onChange={handleChange} />
