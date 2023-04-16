@@ -3,16 +3,12 @@ import axios from 'axios'
 
 const AddCard = (props) =>  {
   const [card, setCard] = useState({});
-  const [deck, setDeck] = useState({})
+  const [deck, setDeck] = useState(props.deck.id)
 
   const handleChange = (event) => {
     setCard({...card, [event.target.name]: event.target.value})
   }
-  const handleDeck = (event) => {
-    axios.get('http://localhost:8000/api/decks/' + props.deck.id).then((response) => {
-      setDeck(response.data)
-    })
-  }
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     setCard(card)
@@ -20,6 +16,7 @@ const AddCard = (props) =>  {
       console.log(response.data)
     })
   };
+
 
   return (
     <div className="App cardAdd">
@@ -29,10 +26,8 @@ const AddCard = (props) =>  {
         onSubmit={handleSubmit}
         enctype="multipart/form-data"
       >
-        {/* <label>
-          Deck:
-          <input type="text" name="deck" placeholder="Enter deck here" />
-        </label> */}
+      
+       <select name='deck' value={props.deck} style={{display: 'none'}}><option key={props.deck.id} value={props.deck.id} style={{display: 'none'}}></option></select>
         <label>
           Question:
           <input type="text" name="question" placeholder="Enter question here" onChange={handleChange} />
@@ -44,7 +39,6 @@ const AddCard = (props) =>  {
 
         <label htmlFor='image'>Image: </label>
         <input type='text' name='image' placeholder='image adress' onChange={handleChange}/>
-        {/* <input type='text' name='deck' value={props.deck} style={{display: 'none'}}/> */}
 
         <button type="submit">Add Card</button>
       </form>

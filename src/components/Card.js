@@ -3,7 +3,11 @@ import anime from "animejs";
 import axios from 'axios'
 
 const Card = (props) => {
-
+const handleDelete = () => {
+  axios.delete(`http://localhost:8000/api/cards/${props.card.id}`).then((response) => {
+    props.getCards()
+  })
+}
   
   // useEffect(() => {
   //   props.getCards()
@@ -19,6 +23,7 @@ const Card = (props) => {
       <h3>Question: {props.card.question}</h3>
       <h3>Answer: {props.card.answer}</h3>
       <img src={props.card.image} alt='answer'/>
+      <button onClick={handleDelete}>Delete Card</button>
     </div>
     // <div className="card-container">
     //   <div id="card" className={`card ${card.id}`} onClick={handleClick}>

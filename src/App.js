@@ -4,29 +4,19 @@ import Add from "./components/Add";
 import Edit from "./components/Edit";
 import "./App.css";
 import Deck from './components/Deck'
-
-// import { GoogleLogin } from "@react-oauth/google";
-
 import "./components/Card.css";
 import Card from "./components/Card";
 import AddCard from "./components/AddCard";
 
-// const googleLogin = async (accesstoken) => {
-//   let res = await axios.post("http://localhost:8000/rest-auth/google/", {
-//     access_token: accesstoken,
-//   });
-
-//   return res.data.key;
-// };
 
 const App = () => {
-  // const [token, setToken] = useState(null);
   let [decks, setDecks] = useState([]);
   const [cards, setCards] = useState([]) 
 
   const getDecks = () => {
     axios.get("http://localhost:8000/api/decks").then((response) => {
       setDecks(response.data);
+      console.log(response.data)
     });
   };
   const getCards = () => {
@@ -43,21 +33,6 @@ const App = () => {
 
   return (
     <>
-      {/* {!token ? (
-        <div className="googleSignInPage">
-          <GoogleLogin
-            onSuccess={(credentialResponse) => {
-              googleLogin(credentialResponse.credential).then((token) => {
-                setToken(token);
-              });
-            }}
-            onError={() => {
-              console.log("Login Failed");
-            }}
-          />
-        </div>
-      ) : (
-        <> */}
           <div className="header" onClick={getCards}>
             <h1>Welcome to Cardify!</h1>
           </div>
