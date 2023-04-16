@@ -3,7 +3,10 @@ import axios from "axios";
 import Add from "./components/Add";
 import Edit from "./components/Edit";
 import "./App.css";
+
 // import { GoogleLogin } from "@react-oauth/google";
+
+import "./components/Card.css";
 import Card from "./components/Card";
 import AddCard from "./components/AddCard";
 

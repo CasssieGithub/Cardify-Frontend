@@ -5,6 +5,8 @@ import axios from "axios";
 function Card(props) {
   const [playing, setPlaying] = useState(false);
   const [cards, setCards] = useState([]);
+  const [question, setQuestion] = useState("");
+  const [answer, setAnswer] = useState("");
 
   const getCards = () => {
     axios.get("http://localhost:8000/api/cards").then((response) => {
@@ -31,6 +33,13 @@ function Card(props) {
     });
   };
 
+  const handleQuestion = (event) => {
+    setQuestion(event.target.value);
+  };
+
+  const handleAnswer = (event) => {
+    setAnswer(event.target.value);
+  };
   {
     cards.map((card) => {
       return (
