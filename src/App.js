@@ -2,28 +2,20 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Add from "./components/Add";
 import Edit from "./components/Edit";
+import "./App.css";
 import Deck from "./components/Deck";
+import "./components/Card.css";
 import Card from "./components/Card";
 import AddCard from "./components/AddCard";
-import "./components/Card.css";
-import "./App.css";
-
-// const googleLogin = async (accesstoken) => {
-//   let res = await axios.post("http://localhost:8000/rest-auth/google/", {
-//     access_token: accesstoken,
-//   });
-
-//   return res.data.key;
-// };
 
 const App = () => {
-  // const [token, setToken] = useState(null);
   let [decks, setDecks] = useState([]);
   const [cards, setCards] = useState([]);
 
   const getDecks = () => {
     axios.get("http://localhost:8000/api/decks").then((response) => {
       setDecks(response.data);
+      console.log(response.data);
     });
   };
   const getCards = () => {
@@ -42,31 +34,6 @@ const App = () => {
     <>
       <div className="header" onClick={getCards}>
         <h1>Welcome to Cardify!</h1>
-      </div>
-      <hr />
-      <div className="decksSection">
-        <div className="deckSidebar">
-          <h4>Deck Name Here</h4>
-        </div>
-        <div className="workSpace">
-          <Add getDecks={getDecks} />
-          {cards.map((card) => {
-            return <Card getCards={getCards} card={card} />;
-          })}
-          <div className="decks">
-            {decks.map((deck) => {
-              return (
-                <>
-                  <div className="deck" key={deck.id}>
-                    <Deck getDecks={getDecks} deck={deck} />
-                    <Edit getDecks={getDecks} deck={deck} />
-                  </div>
-                  <AddCard deck={deck} getDecks={getDecks} />
-                </>
-              );
-            })}
-          </div>
-        </div>
       </div>
       <hr />
       <div className="seachSection">

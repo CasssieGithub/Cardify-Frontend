@@ -18,7 +18,7 @@ const Edit = (props) => {
   }
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.put("http://localhost:8000/api/decks", deck).then((response) => {
+    axios.put(`http://localhost:8000/api/decks/${deck.id}`, deck).then((response) => {
       props.getDecks();
     });
   };
