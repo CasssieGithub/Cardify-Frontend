@@ -61,18 +61,23 @@ function App() {
   return (
     <>
       {!token ? (
-        <div className="googleSignInPage">
-          <GoogleLogin
-            onSuccess={(credentialResponse) => {
-              googleLogin(credentialResponse.credential).then((token) => {
-                setToken(token);
-              });
-            }}
-            onError={() => {
-              console.log("Login Failed");
-            }}
-          />
-        </div>
+        <>
+          <div className="header">
+            <h1>Welcome to Cardify!</h1>
+          </div>
+          <div className="googleSignInPage">
+            <GoogleLogin
+              onSuccess={(credentialResponse) => {
+                googleLogin(credentialResponse.credential).then((token) => {
+                  setToken(token);
+                });
+              }}
+              onError={() => {
+                console.log("Login Failed");
+              }}
+            />
+          </div>
+        </>
       ) : (
         <>
           <div className="header">

@@ -37,7 +37,14 @@ const Add = (props) => {
           <option value="math">Math</option>
           <option value="english">English</option>
         </select>
-
+        <br />
+        <br />
+        <label htmlFor="topic">Topic: </label>
+        <input type="text" name="topic" onChange={handleChange} />
+        <br />
+        <br />
+        <label htmlFor="classs">Class: </label>
+        <input type="text" name="classs" onChange={handleChange} />
         <label htmlFor="comments">Comments: </label>
         <input
           className="formInput"
@@ -46,7 +53,10 @@ const Add = (props) => {
           value={deck.comments}
           onChange={handleChange}
         />
-        <input className="submitBtn" type="submit" />
+
+        <br />
+        <br />
+        <input type="submit" />
       </form>
     </>
   );

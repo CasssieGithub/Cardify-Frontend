@@ -86,3 +86,9 @@
 .fullbody {
   display: flex;
 }
+.googleSignInPage{
+  position: relative;
+left: 40%;
+top: 40%;
+width: 20%;
+}
