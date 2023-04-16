@@ -34,8 +34,10 @@ useEffect(() => {
   
   {cards.map((card) => {
   return (
+
     <div>
       <h1>{card.question}</h1>
+
     </div>
     // <div className="card-container">
     //   <div id="card" className={`card ${card.id}`} onClick={handleClick}>

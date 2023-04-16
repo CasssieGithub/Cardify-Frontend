@@ -24,19 +24,19 @@ const Add = (props) => {
         <h3>Add a New Deck</h3>
         <label htmlFor="title">Title: </label>
         <input
+          className="formInput"
           type="text"
           name="title"
           value={deck.title}
           onChange={handleChange}
         />
-        <br />
-        <br />
+
         <label htmlFor="subject">Subject: </label>
-        <select name="subject" onChange={handleChange}>
-          <option value='science'>Science</option>
-          <option value='social'>Social Studies</option>
-          <option value='math'>Math</option>
-          <option value='english'>English</option>
+        <select className="formInput" name="subject" onChange={handleChange}>
+          <option value="science">Science</option>
+          <option value="social">Social Studies</option>
+          <option value="math">Math</option>
+          <option value="english">English</option>
         </select>
         <br/>
         <br/>
@@ -46,17 +46,20 @@ const Add = (props) => {
         <br/>
         <label htmlFor='classs'>Class: </label>
         <input type='text' name='classs' onChange={handleChange}/>
+
         <label htmlFor="comments">Comments: </label>
         <input
+          className="formInput"
           type="text"
           name="comments"
           value={deck.comments}
           onChange={handleChange}
         />
-        
+
         <br/>
         <br/>
         <input type="submit" />
+
       </form>
     </>
   );
