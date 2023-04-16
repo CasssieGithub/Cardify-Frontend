@@ -12,8 +12,9 @@ const Add = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(deck)
     axios.post("http://localhost:8000/api/decks", deck).then((response) => {
-      console.log(response);
+      console.log(deck);
       props.getDecks();
     });
   };
@@ -32,11 +33,14 @@ const Add = (props) => {
         />
 
         <label htmlFor="subject">Subject: </label>
-        <select className="formInput" name="subject" onChange={handleChange}>
-          <option value="science">Science</option>
-          <option value="social">Social Studies</option>
-          <option value="math">Math</option>
-          <option value="english">English</option>
+
+        <select name="subject" onChange={handleChange} className="formInput">
+          <option id='selectsub' value="" disabled selected hidden>Select Subject</option>
+          <option value='science'>Science</option>
+          <option value='social'>Social Studies</option>
+          <option value='math'>Math</option>
+          <option value='english'>English</option>
+
         </select>
         <br/>
         <br/>
