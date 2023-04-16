@@ -24,7 +24,15 @@ const AddCard = (props) =>  {
   return (
     <div className="App cardAdd">
       <h3>Add a New Card</h3>
-      <form className="AddCardForm" onSubmit={handleSubmit}>
+      <form
+        className="AddCardForm"
+        onSubmit={handleSubmit}
+        enctype="multipart/form-data"
+      >
+        <label>
+          Deck:
+          <input type="text" name="deck" placeholder="Enter deck here" />
+        </label>
         <label>
           Question:
           <input type="text" name="question" placeholder="Enter question here" onChange={handleChange} />
@@ -33,9 +41,11 @@ const AddCard = (props) =>  {
           Answer:
           <input type="text" name="answer" placeholder="Enter answer here" onChange={handleChange} />
         </label>
+
         <label htmlFor='image'>Image: </label>
         <input type='text' name='image' placeholder='image adress' onChange={handleChange}/>
         {/* <input type='text' name='deck' value={props.deck} style={{display: 'none'}}/> */}
+
         <button type="submit">Add Card</button>
       </form>
      
