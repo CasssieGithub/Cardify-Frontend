@@ -1,11 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import anime from "animejs";
+import axios from 'axios'
 
 function Card(props) {
   const [playing, setPlaying] = useState(false);
-  const [frontText, setFrontText] = useState("");
-  const [backText, setBackText] = useState("");
+  const [cards, setCards] = useState([])
 
+  const getCards = () => {
+    axios.get('http://localhost:8000/api/cards').then((response) => {
+      setCards(response.data)
+    })
+  }
+useEffect(() => {
+  getCards()
+}, [])
   const handleClick = () => {
     if (playing) return;
 
@@ -23,28 +31,28 @@ function Card(props) {
     });
   };
 
-  const handleFrontChange = (event) => {
-    setFrontText(event.target.value);
-  };
-
-  const handleBackChange = (event) => {
-    setBackText(event.target.value);
-  };
-
+  
+  {cards.map((card) => {
   return (
-    <div className="card-container">
-      <div id="card" className={`card ${props.id}`} onClick={handleClick}>
-        {/* Card front */}
-        <div className="card-front">
-          <p>{props.front}</p>
-        </div>
-        {/* Card back */}
-        <div className="card-back">
-          <p>{props.back}</p>
-        </div>
-      </div>
-    </div>
-  );
-}
 
+    <div>
+      <h1>{card.question}</h1>
+
+    </div>
+    // <div className="card-container">
+    //   <div id="card" className={`card ${card.id}`} onClick={handleClick}>
+    //     {/* Card front */}
+    //     <div className="card-front">
+    //       <p>{card.question}</p>
+    //     </div>
+
+    //     {/* Card back */}
+    //     <div className="card-back">
+    //       <p>{card.answer}</p>
+    //     </div>
+    //   </div>
+    // </div>
+  );
+})}
+}
 export default Card;

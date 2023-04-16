@@ -1,30 +1,24 @@
 import React, { useState } from "react";
-import Card from "./Card";
+import axios from 'axios'
 
-function App() {
-  const [cards, setCards] = useState([]);
+const AddCard = (props) =>  {
+  const [card, setCard] = useState({});
+  const [deck, setDeck] = useState({})
 
+  const handleChange = (event) => {
+    setCard({...card, [event.target.name]: event.target.value})
+  }
+  const handleDeck = (event) => {
+    axios.get('http://localhost:8000/api/decks/' + props.deck.id).then((response) => {
+      setDeck(response.data)
+    })
+  }
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    const front = event.target.front.value;
-    const back = event.target.back.value;
-
-    setCards([...cards, { front, back }]);
-    event.target.reset();
-  };
-
-  const renderCards = () => {
-    return cards.map((card, index) => {
-      return (
-        <Card
-          key={index}
-          front={card.front}
-          back={card.back}
-          id={`card-${index}`}
-        />
-      );
-    });
+    setCard(card)
+    axios.post('http://localhost:8000/api/cards', card).then((response) => {
+      console.log(response.data)
+    })
   };
 
   return (
@@ -41,21 +35,22 @@ function App() {
         </label>
         <label>
           Question:
-          <input type="text" name="front" placeholder="Enter question here" />
+          <input type="text" name="question" placeholder="Enter question here" onChange={handleChange} />
         </label>
         <label>
           Answer:
-          <input type="text" name="back" placeholder="Enter answer here" />
+          <input type="text" name="answer" placeholder="Enter answer here" onChange={handleChange} />
         </label>
-        <label>
-          Image:
-          <input type="image" name="image" placeholder="Enter answer here" />
-        </label>
+
+        <label htmlFor='image'>Image: </label>
+        <input type='text' name='image' placeholder='image adress' onChange={handleChange}/>
+        {/* <input type='text' name='deck' value={props.deck} style={{display: 'none'}}/> */}
+
         <button type="submit">Add Card</button>
       </form>
-      {renderCards()}
+     
     </div>
   );
 }
 
-export default App;
+export default AddCard;
