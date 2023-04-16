@@ -4,17 +4,17 @@ import Add from "./components/Add";
 import Edit from "./components/Edit";
 import "./App.css";
 import "./components/Card.css";
-import { GoogleLogin } from "@react-oauth/google";
+// import { GoogleLogin } from "@react-oauth/google";
 import Card from "./components/Card";
 import AddCard from "./components/AddCard";
 
-const googleLogin = async (accesstoken) => {
-  let res = await axios.post("http://localhost:8000/rest-auth/google/", {
-    access_token: accesstoken,
-  });
+// const googleLogin = async (accesstoken) => {
+//   let res = await axios.post("http://localhost:8000/rest-auth/google/", {
+//     access_token: accesstoken,
+//   });
 
-  return res.data.key;
-};
+//   return res.data.key;
+// };
 
 function App() {
   const [token, setToken] = useState(null);
@@ -28,9 +28,9 @@ function App() {
       setDecks(response.data);
     });
   };
-  axios.get("http://localhost:8000/api/decks").then((response) => {
-    setDecks(response.data);
-  });
+  // axios.get("http://localhost:8000/api/decks").then((response) => {
+  //   setDecks(response.data);
+  // });
 
   useEffect(() => {
     getDecks();
