@@ -31,10 +31,10 @@ const AddCard = (props) => {
         onSubmit={handleSubmit}
         enctype="multipart/form-data"
       >
-        <label>
+        {/* <label>
           Deck:
           <input type="text" name="deck" placeholder="Enter deck here" />
-        </label>
+        </label> */}
         <label>
           Question:
           <input

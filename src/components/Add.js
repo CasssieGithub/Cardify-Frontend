@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const Add = (props) => {
-  let emptyDeck = { title: "", subject: "", comments: "" };
-  const [deck, setDeck] = useState(emptyDeck);
+  const [deck, setDeck] = useState({});
 
   const handleChange = (event) => {
     setDeck({ ...deck, [event.target.name]: event.target.value });
