@@ -11,3 +11,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+@font-face {
+  font-family: 'Chivo_Mono';
+  src: local('Chivo_Mono'), url(./fonts/Chivo_Mono/ChivoMono-VariableFont_wght.ttf) format('truetype');
+}
