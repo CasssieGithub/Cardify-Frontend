@@ -4,11 +4,14 @@ import Deck from "./Deck";
 import AddCard from "./AddCard";
 import Edit from "./Edit";
 import Add from "./Add";
+import { Link } from "react-router-dom";
+import DeckView from "./DeckView";
 
 const Profile = (props) => {
   return (
     <div>
       <div>
+        <Link to="/deckView">View decks</Link>;
         <div className="header" onClick={props.getCards}>
           <h1>Welcome to Cardify!</h1>
         </div>
@@ -50,8 +53,8 @@ const Profile = (props) => {
                   <Add getDecks={props.getDecks} deck={deck} />
                   <Deck getDecks={props.getDecks} deck={deck} />
                   <Edit getDecks={props.getDecks} deck={deck} />
+                  {/* <DeckView getDecks={props.getDecks} deck={deck} /> */}
                 </div>
-                <AddCard deck={deck} getDecks={props.getDecks} />
               </div>
             );
           })}
