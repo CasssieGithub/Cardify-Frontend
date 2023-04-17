@@ -1,14 +1,39 @@
+.fullbody{
+    display: flex;
+    flex-direction: row;
+}
 .sidebar{
+    font-family: 'Chivo_Mono';
+    color: rgb(70, 70, 70);
     min-width: 150px;
     width: 15%;
     background-color: rgb(218, 218, 218);
     min-height: 90vh;
     padding: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .workSpace{
-    background-image: radial-gradient(#8d8d8d 20%, #ffffff 20%);
+    background-image: radial-gradient(#f4f4f4 20%, #ffffff 20%);
     background-position: 0 0;
-    background-size: 100px 100px;
-    height: 200px;
-    width: 100%;
+    background-size: 10px 10px;
+    min-height: 90vh;
+    width: 85%;
+}
+.subjectLogo{
+    width: 40px;
+    margin: 5px;
+}
+.deckSidebar{
+    display: flex;
+
+}
+.decks{
+    min-height: 200px;
+    background-color: aquamarine;
+}
+.deck{
+    min-height: 200px;
+    background-color: rgb(255, 240, 127);
 }
