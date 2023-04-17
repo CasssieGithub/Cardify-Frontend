@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 
 const Add = (props) => {
   const [deck, setDeck] = useState({});
@@ -11,10 +11,17 @@ const Add = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(deck);
+    // console.log(deck);
     axios.post("http://localhost:8000/api/decks", deck).then((response) => {
-      console.log(deck);
+      // console.log(deck);
       props.getDecks();
+      // setDeck({
+      //   Title: "",
+      //   Subject: "",
+      //   Topic: "",
+      //   Class: "",
+      //   Comments: "",
+      // });
     });
   };
 
@@ -27,7 +34,7 @@ const Add = (props) => {
           className="formInput"
           type="text"
           name="title"
-          value={props.deck.title}
+          // value={props.deck.title}
           onChange={handleChange}
         />
 
@@ -56,7 +63,7 @@ const Add = (props) => {
           className="formInput"
           type="text"
           name="comments"
-          value={props.deck.comments}
+          // value={props.deck.comments}
           onChange={handleChange}
         />
 
