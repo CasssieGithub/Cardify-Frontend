@@ -4,6 +4,7 @@ import Deck from "./Deck";
 import AddCard from "./AddCard";
 import Edit from "./Edit";
 import Add from "./Add";
+import { Link } from "react-router-dom";
 
 const Profile = (props) => {
   return (
