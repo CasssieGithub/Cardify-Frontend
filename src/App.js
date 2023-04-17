@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
+// import { Link } from "react-router-dom";
 // import Add from "./components/Add";
 // import Edit from "./components/Edit";
 import "./App.css";
@@ -10,6 +11,7 @@ import "./components/Card.css";
 // import AddCard from "./components/AddCard";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
+import DeckView from "./components/DeckView";
 
 const App = () => {
   let [decks, setDecks] = useState([]);
@@ -49,11 +51,22 @@ const App = () => {
             />
           }
         />
+        <Route
+          path="/deckView/:deckId"
+          element={<DeckView cards={cards} decks={decks} />}
+        />
       </Routes>
     </div>
   );
 };
 
 export default App;
+
+{
+  /* <Route
+          path="/add/:deckid"
+          // element={<AddCard deck={deck} getDecks={props.getDecks} />}
+        /> */
+}
 
 // updated
