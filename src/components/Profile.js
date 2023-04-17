@@ -65,6 +65,7 @@ const Profile = (props) => {
           </div>
         </div>
         <div className="workSpace">
+          <Add getDecks={props.getDecks} />
           {props.cards.map((card) => {
             return <Card getCards={props.getCards} card={card} />;
           })}
@@ -73,7 +74,6 @@ const Profile = (props) => {
               return (
                 <div>
                   <div className="deck" key={deck.id}>
-                    <Add getDecks={props.getDecks} deck={deck} />
                     <Deck getDecks={props.getDecks} deck={deck} />
                     <Edit getDecks={props.getDecks} deck={deck} />
                     {/* <DeckView getDecks={props.getDecks} deck={deck} /> */}
