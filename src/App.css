@@ -47,16 +47,28 @@
 .deckAdd {
   background-color: rgba(97, 108, 134, 0.2);
   width: 29%;
+  min-width: 200px;
   padding: 2%;
   border-radius: 10px;
   backdrop-filter: blur(10px);
   box-shadow: 0px 0px 10px rgb(103, 103, 103);
   border: 1px solid white;
   margin: 2%;
-  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.sidebar {
-  width: 25%;
+.formInput{
+  margin: 5%;
+}
+.submitBtn{
+  width: 100px;
+  height: 30px;
+  border-radius: 15px;
+}
+.sidebar{
+  width: 10%;
+  min-width: 150px;
   min-height: 90vh;
   background-color: rgba(97, 108, 134, 0.2);
   padding: 2%;
@@ -64,8 +76,8 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.workSpace {
-  width: 75%;
+.workSpace{
+  width: 90%;
   background-image: radial-gradient(#c8c8c8 4%, transparent 4%);
   background-color: #ffffff;
   background-position: 0 0, 50px 50px;
@@ -74,6 +86,7 @@
 .fullbody {
   display: flex;
 }
+
 
 /* CARD SECTION  */
 
@@ -123,3 +136,10 @@
   display: flex;
   justify-content: center;
 }
+#selectsub {
+  color: lightslategray;
+}
+.deck {
+  padding-left: 20px;
+}
+

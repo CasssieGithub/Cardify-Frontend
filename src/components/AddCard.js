@@ -1,49 +1,72 @@
-import React, { useState } from "react";
-import Card from "./Card";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+// import { useState, useEffect } from "react";
 
-function App() {
-  const [cards, setCards] = useState([]);
+const AddCard = (props) => {
+  const key = props.deck.id;
+  const [card, setCard] = useState({
+    question: "",
+    answer: "",
+    image: "",
+    deck: key,
+  });
+  // const [deck, setDeck] = useState(props.deck)
+
+  const handleChange = (event) => {
+    setCard({ ...card, [event.target.name]: event.target.value });
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    const front = event.target.front.value;
-    const back = event.target.back.value;
-
-    setCards([...cards, { front, back }]);
-    event.target.reset();
-  };
-
-  const renderCards = () => {
-    return cards.map((card, index) => {
-      return (
-        <Card
-          key={index}
-          front={card.front}
-          back={card.back}
-          id={`card-${index}`}
-        />
-      );
+    setCard(card);
+    axios.post("http://localhost:8000/api/cards", card).then((response) => {
+      console.log(response.data);
     });
   };
 
   return (
     <div className="App cardAdd">
       <h3>Add a New Card</h3>
-      <form className="AddCardForm" onSubmit={handleSubmit}>
+      <form
+        className="AddCardForm"
+        onSubmit={handleSubmit}
+        enctype="multipart/form-data"
+      >
+        {/* <select name='deck' value={props.deck.id} onChange={handleDeck}>
+        <option value={props.deck.id}>Deck {props.deck.title}</option>
+        </select> */}
+        {/* <input name='deck' style={{display: 'none'}} value={props.deck.id}/> */}
         <label>
           Question:
-          <input type="text" name="front" placeholder="Enter question here" />
+          <input
+            type="text"
+            name="question"
+            placeholder="Enter question here"
+            onChange={handleChange}
+          />
         </label>
         <label>
           Answer:
-          <input type="text" name="back" placeholder="Enter answer here" />
+          <input
+            type="text"
+            name="answer"
+            placeholder="Enter answer here"
+            onChange={handleChange}
+          />
         </label>
+
+        <label htmlFor="image">Image: </label>
+        <input
+          type="text"
+          name="image"
+          placeholder="image address"
+          onChange={handleChange}
+        />
+
         <button type="submit">Add Card</button>
       </form>
-      {renderCards()}
     </div>
   );
-}
+};
 
-export default App;
+export default AddCard;
