@@ -1,0 +1,60 @@
+.body{
+    background-image: url("/Users/youssefshabo/dev/Ollivanders/Projects/Project 4/Cardify_Frontend/public/landing.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;
+    height: 65 nvh;
+    margin: 0;
+    padding: 10%;
+  }
+  
+.landingPgImg{
+    width: 100%;
+}
+.landingBodyTxt{
+    background-color: rgba(97,108,134, 0.2);
+    width: 40%;
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 10px rgb(103, 103, 103);
+    border: 1px solid white;
+    padding: 2%;
+}
+.title{
+    color: white;
+    font-family: 'Chivo_Mono';
+}
+.paragraph{
+    color: white;
+    text-align: justify;
+}
+.CAT{
+    background-color: #ffcd55;
+    border-radius: 50px;
+    border: 1px solid white;
+}
+.link{
+    text-decoration: none;
+}
+footer{
+    background-color: #0a5a83;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    line-height: 1em;
+    z-index: 1;
+}
+#footer{
+    font-size: 12px;
+    display: flex;
+    justify-content: space-around;}
+#contact{
+    text-align: center;
+    color: white;
+}
+#col{
+    width: 25%;
+    text-align: center;
+}
