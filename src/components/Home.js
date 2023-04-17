@@ -11,7 +11,9 @@ const Home = (props) => {
           <Link className="link" to="/profile">
             <h1 className="navBarTxt">Profile page</h1>
           </Link>
-          <h1 className="navBarTxt">About</h1>
+          <Link className="link" to="/">
+            <h1 className="navBarTxt">Home</h1>
+          </Link>
         </div>
       </div>
       <div className="body">

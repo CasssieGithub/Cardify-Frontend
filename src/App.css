@@ -60,10 +60,3 @@
 .logo{
   width: 200px;
 }
-body{
-  background-image: url("../public/landing.webp");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: top;
-}

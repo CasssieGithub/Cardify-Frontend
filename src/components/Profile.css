@@ -1,0 +1,14 @@
+.sidebar{
+    min-width: 150px;
+    width: 15%;
+    background-color: rgb(218, 218, 218);
+    min-height: 90vh;
+    padding: 2%;
+}
+.workSpace{
+    background-image: radial-gradient(#8d8d8d 20%, #ffffff 20%);
+    background-position: 0 0;
+    background-size: 100px 100px;
+    height: 200px;
+    width: 100%;
+}
