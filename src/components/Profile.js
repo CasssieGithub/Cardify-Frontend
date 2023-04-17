@@ -7,7 +7,6 @@ import "./Home.css";
 import "./Profile.css";
 import { Link } from "react-router-dom";
 import Add from "./Add";
-import { Link } from "react-router-dom";
 
 const Profile = (props) => {
   return (
@@ -72,7 +71,7 @@ const Profile = (props) => {
                       <Deck getDecks={props.getDecks} deck={deck} />
                       <Edit getDecks={props.getDecks} deck={deck} />
                     </div>
-                    {/* <AddCard deck={deck} getDecks={props.getDecks} /> */}
+                    <AddCard deck={deck} getDecks={props.getDecks} />
                   </div>
                 );
               })}
