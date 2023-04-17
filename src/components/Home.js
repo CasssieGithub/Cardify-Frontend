@@ -3,7 +3,12 @@ import "./Home.css";
 import { Link } from "react-router-dom";
 
 const Home = (props) => {
-  return <Link to="/profile">Profile page</Link>;
+  return (
+    <div>
+      <Link to="/profile">Profile page</Link>
+      {/* <h1>hi</h1>; */}
+    </div>
+  );
 };
 
 export default Home;

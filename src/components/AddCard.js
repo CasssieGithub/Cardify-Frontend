@@ -30,7 +30,7 @@ const AddCard = (props) => {
       <form
         className="AddCardForm"
         onSubmit={handleSubmit}
-        enctype="multipart/form-data"
+        encType="multipart/form-data"
       >
         {/* <select name='deck' value={props.deck.id} onChange={handleDeck}>
         <option value={props.deck.id}>Deck {props.deck.title}</option>

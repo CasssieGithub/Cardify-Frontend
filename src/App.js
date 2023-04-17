@@ -40,28 +40,16 @@ const App = () => {
 
         <Route
           path="/profile"
-          element={<Profile getCards={getCards} cards={cards} decks={decks} />}
+          element={
+            <Profile
+              getCards={getCards}
+              getDecks={getDecks}
+              cards={cards}
+              decks={decks}
+            />
+          }
         />
       </Routes>
-
-      {/* <div className="workSpace">
-        {cards.map((card) => {
-          return <Card getCards={getCards} card={card} />;
-        })}
-        <div className="decks">
-          {decks.map((deck) => {
-            return (
-              <div>
-                <div className="deck" key={deck.id}>
-                  <Deck getDecks={getDecks} deck={deck} />
-                  <Edit getDecks={getDecks} deck={deck} />
-                </div>
-                <AddCard deck={deck} getDecks={getDecks} />
-              </div>
-            );
-          })}
-        </div>
-      </div> */}
     </div>
   );
 };
