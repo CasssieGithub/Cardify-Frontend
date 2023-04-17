@@ -3,6 +3,7 @@ import Card from "./Card";
 import Deck from "./Deck";
 import AddCard from "./AddCard";
 import Edit from "./Edit";
+import Add from "./Add";
 
 const Profile = (props) => {
   return (
@@ -46,6 +47,7 @@ const Profile = (props) => {
             return (
               <div>
                 <div className="deck" key={deck.id}>
+                  <Add getDecks={props.getDecks} deck={deck} />
                   <Deck getDecks={props.getDecks} deck={deck} />
                   <Edit getDecks={props.getDecks} deck={deck} />
                 </div>
