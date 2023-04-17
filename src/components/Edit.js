@@ -29,7 +29,7 @@ const Edit = (props) => {
 
   return (
     <>
-      <button class="editdeckbttn" onClick={handleEdit}>
+      <button className="editdeckbttn" onClick={handleEdit}>
         Edit Deck {deck.title}
       </button>
       {edit ? (

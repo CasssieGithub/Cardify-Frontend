@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, useParams } from "react-router-dom";
+// import Deck from "./Deck";
 
 const Deck = (props) => {
   // useEffect(() => {
   //   props.getDecks()
   // })
+  // console.log(props.deck);
 
   return (
-    <div class="deckdiv">
+    <div className="deckdiv">
       <h3>{props.deck.title}</h3>
       <h4>Subject: {props.deck.subject}</h4>
       <h4>Class: {props.deck.classs}</h4>

@@ -39,17 +39,17 @@ const Profile = (props) => {
       </div>
       <div className="workSpace">
         {props.cards.map((card) => {
-          return <Card getCards={props.getCards} card={props.card} />;
+          return <Card getCards={props.getCards} card={card} />;
         })}
         <div className="decks">
           {props.decks.map((deck) => {
             return (
               <div>
                 <div className="deck" key={deck.id}>
-                  <Deck getDecks={props.getDecks} deck={props.deck} />
-                  <Edit getDecks={props.getDecks} deck={props.deck} />
+                  <Deck getDecks={props.getDecks} deck={deck} />
+                  <Edit getDecks={props.getDecks} deck={deck} />
                 </div>
-                <AddCard deck={props.deck} getDecks={props.getDecks} />
+                <AddCard deck={deck} getDecks={props.getDecks} />
               </div>
             );
           })}
