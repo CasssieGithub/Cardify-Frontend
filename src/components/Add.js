@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useState, useEffect } from "react";
 
 const Add = (props) => {
   const [deck, setDeck] = useState({});
@@ -26,7 +27,7 @@ const Add = (props) => {
           className="formInput"
           type="text"
           name="title"
-          value={deck.title}
+          value={props.deck.title}
           onChange={handleChange}
         />
 
@@ -55,7 +56,7 @@ const Add = (props) => {
           className="formInput"
           type="text"
           name="comments"
-          value={deck.comments}
+          value={props.deck.comments}
           onChange={handleChange}
         />
 

@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 import axios from "axios";
-import Add from "./components/Add";
-import Edit from "./components/Edit";
+// import Add from "./components/Add";
+// import Edit from "./components/Edit";
 import "./App.css";
-import Deck from "./components/Deck";
+// import Deck from "./components/Deck";
 import "./components/Card.css";
-import Card from "./components/Card";
-import AddCard from "./components/AddCard";
+// import Card from "./components/Card";
+// import AddCard from "./components/AddCard";
+import Home from "./components/Home";
+import Profile from "./components/Profile";
 
 const App = () => {
   let [decks, setDecks] = useState([]);
@@ -31,36 +34,38 @@ const App = () => {
   }, []);
 
   return (
-    <>
-      <div className="header" onClick={getCards}>
-        <h1>Welcome to Cardify!</h1>
-      </div>
-      <hr />
-      <div className="seachSection">
-        <h4>Search Bar Section</h4>
-      </div>
-      <div className="workSpace">
-        <Add getDecks={getDecks} />
+    <div>
+      <Routes>
+        <Route path="/" element={<Home getCards={getCards} />} />
+
+        <Route
+          path="/profile"
+          element={<Profile getCards={getCards} cards={cards} decks={decks} />}
+        />
+      </Routes>
+
+      {/* <div className="workSpace">
+        {cards.map((card) => {
+          return <Card getCards={getCards} card={card} />;
+        })}
         <div className="decks">
           {decks.map((deck) => {
             return (
-              <>
+              <div>
                 <div className="deck" key={deck.id}>
-                  <h4>Title: {deck.title}</h4>
-                  <h4>Subject: {deck.subject}</h4>
-                  <h4>Comments: {deck.comments}</h4>
-                  <Edit deck={deck} getDecks={getDecks} />
+                  <Deck getDecks={getDecks} deck={deck} />
+                  <Edit getDecks={getDecks} deck={deck} />
                 </div>
                 <AddCard deck={deck} getDecks={getDecks} />
-              </>
+              </div>
             );
           })}
         </div>
-        {/* CARDS SECTION */}
-      </div>
-    </>
+      </div> */}
+    </div>
   );
 };
+
 export default App;
 
 // updated

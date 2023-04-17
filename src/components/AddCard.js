@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+// import { useState, useEffect } from "react";
 
 const AddCard = (props) => {
   const key = props.deck.id;
@@ -17,8 +18,10 @@ const AddCard = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const card = { deck, question, answer, image };
-    props.onSubmit(card);
+    setCard(card);
+    axios.post("http://localhost:8000/api/cards", card).then((response) => {
+      console.log(response.data);
+    });
   };
 
   return (
@@ -56,7 +59,7 @@ const AddCard = (props) => {
         <input
           type="text"
           name="image"
-          placeholder="image adress"
+          placeholder="image address"
           onChange={handleChange}
         />
 
