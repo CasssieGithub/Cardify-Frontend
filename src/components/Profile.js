@@ -6,6 +6,7 @@ import Edit from "./Edit";
 import "./Home.css";
 import "./Profile.css";
 import { Link } from "react-router-dom";
+import Add from "./Add";
 
 const Profile = (props) => {
   return (
@@ -57,6 +58,7 @@ const Profile = (props) => {
             return (
               <div>
                 <div className="deck" key={deck.id}>
+                  <Add getDecks={props.getDecks} deck={deck} />
                   <Deck getDecks={props.getDecks} deck={deck} />
                   <Edit getDecks={props.getDecks} deck={deck} />
                 </div>
