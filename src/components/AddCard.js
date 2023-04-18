@@ -3,14 +3,13 @@ import axios from "axios";
 // import { useState, useEffect } from "react";
 
 const AddCard = (props) => {
-  const key = props.deck.id;
+  const key = props.findDeckById.id;
   const [card, setCard] = useState({
     question: "",
     answer: "",
     image: "",
     deck: key,
   });
-  // const [deck, setDeck] = useState(props.deck)
 
   const handleChange = (event) => {
     setCard({ ...card, [event.target.name]: event.target.value });
@@ -20,7 +19,7 @@ const AddCard = (props) => {
     event.preventDefault();
     setCard(card);
     axios.post("http://localhost:8000/api/cards", card).then((response) => {
-      console.log(response.data);
+      props.getCards();
     });
   };
 
@@ -32,10 +31,6 @@ const AddCard = (props) => {
         onSubmit={handleSubmit}
         encType="multipart/form-data"
       >
-        {/* <select name='deck' value={props.deck.id} onChange={handleDeck}>
-        <option value={props.deck.id}>Deck {props.deck.title}</option>
-        </select> */}
-        {/* <input name='deck' style={{display: 'none'}} value={props.deck.id}/> */}
         <label>
           Question:
           <input

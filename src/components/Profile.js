@@ -1,19 +1,16 @@
 import "./Profile.css";
-import Card from "./Card";
 import Deck from "./Deck";
-import AddCard from "./AddCard";
 import Edit from "./Edit";
 import "./Home.css";
 import "./Profile.css";
 import Add from "./Add";
 import { Link } from "react-router-dom";
-import DeckView from "./DeckView";
+// import DeckView from "./DeckView";
 
 const Profile = (props) => {
   return (
     <div>
       <div>
-        <Link to="/deckView">View decks</Link>;
         <div className="header" onClick={props.getCards}>
           <h1>Welcome to Cardify!</h1>
           <div className="navBar">
@@ -66,14 +63,15 @@ const Profile = (props) => {
         </div>
         <div className="workSpace">
           <Add getDecks={props.getDecks} />
-          {props.cards.map((card) => {
+          {/* {props.cards.map((card) => {
             return <Card getCards={props.getCards} card={card} />;
-          })}
+          })} */}
           <div className="decks">
             {props.decks.map((deck) => {
               return (
                 <div>
                   <div className="deck" key={deck.id}>
+                    <Link to={`/deckView/${deck.id}`}>View decks</Link>
                     <Deck getDecks={props.getDecks} deck={deck} />
                     <Edit getDecks={props.getDecks} deck={deck} />
                     {/* <DeckView getDecks={props.getDecks} deck={deck} /> */}
