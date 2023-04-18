@@ -41,7 +41,9 @@ const Filter = ({ decks }) => {
 
           <ul>
             {filteredDecks.length > 0
-              ? filteredDecks.map((deck, index) => <li key={index}>{deck}</li>)
+              ? filteredDecks.map((deck, index) => (
+                  <li key={index}>{deck.title}</li>
+                ))
               : decks.map((deck, index) => <li key={index}>{deck.title}</li>)}
           </ul>
         </div>

@@ -1,0 +1,7 @@
+body{
+    background-image: radial-gradient(#f4f4f4 20%, #ffffff 20%);
+    background-position: 0 0;
+    background-size: 10px 10px;
+    min-height: 90vh;
+    width: 100%;
+}

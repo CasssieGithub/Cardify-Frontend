@@ -4,15 +4,20 @@
     margin: 0;
     font-family: 'Chivo_Mono';
     color: rgb(70, 70, 70);
+    width: 100%;
 }
 .sidebar{
     width: 15%;
+    min-width: 180px;
     background-color: rgb(218, 218, 218);
     min-height: 90vh;
     padding: 2%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+hr{
+    width: 100%;
 }
 .workSpace{
     background-image: radial-gradient(#f4f4f4 20%, #ffffff 20%);
@@ -38,7 +43,7 @@
     border: 5px solid white;
     display: flex;
     flex-direction: column;
-    margin: 5%;
+    margin: 5% auto;
     box-shadow: 2px 2px 7px grey;
 }
 .deckEdit{
@@ -46,7 +51,7 @@
     flex-direction: column;
 }
 .deck{
-    width: 20%;
+    min-width: 240px;
     padding: 3% 2%;
     margin: 2%;
     background-color: #f3eeda;

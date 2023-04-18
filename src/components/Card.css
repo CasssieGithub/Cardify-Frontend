@@ -8,22 +8,22 @@
     margin: 80px auto;
     border-radius: 10px;
     perspective: 1400px;
-    flex-direction: row; /* add this line */
-}
-
-#card
-{
+    flex-direction: row;
+    font-family: 'Chivo_Mono';
+  }
+  .card {
     width: 400px;
     position: relative;
     height: 100%;
     border-radius: 10px;
     transform-style: preserve-3d;
     box-shadow: -0px 0px 5px rgb(103, 103, 103);
-}
+    transition: transform 0.4s;
+    margin: 5%;
+  }
 
-.card-front,
-.card-back
-{
+  .card-front,
+  .card-back {
     display: flex;
     width: 100%;
     height: 100%;
@@ -38,7 +38,7 @@
 {
     width: 100%;
     color: #fff;
-    background: #61a3d9;
+    background: #0a5a83;
 }
 
 .card-back
@@ -47,6 +47,27 @@
     top: 0;
     left: 0;
     transform: rotateY(180deg);
-    color: #61a3d9;
-    background: #e0e2e7;
+    color: #0a5a83;
+    background: #ffcd55;
+}
+.answerImg{
+    width: 100px;
+}
+.card.flipped {
+    transform: rotateY(180deg);
+  }
+.trashCan{
+    width: 20px;
+    cursor: pointer;
+
+}
+.trashIcon{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+.answers{
+    position: absolute;
+    left: 10px;
+    top: -25px;
 }

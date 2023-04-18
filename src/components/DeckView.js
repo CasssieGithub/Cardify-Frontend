@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Routes, Route, useParams } from "react-router-dom";
 import "./DeckView.css";
+import "./Home.css";
 // import axios from "axios";
 import AddCard from "./AddCard";
 import Card from "./Card";
@@ -22,7 +23,17 @@ const DeckView = (props) => {
   return (
     <div>
       <div>
-        <Link to="/">Home </Link>
+        <div className="navBar">
+          <img className="logo" src="../Cardify.png" />
+          <div className="navBarItems">
+            <Link className="link" to="/profile">
+              <h1 className="navBarTxt">Profile page</h1>
+            </Link>
+            <Link className="link" to="/">
+              <h1 className="navBarTxt">Home</h1>
+            </Link>
+          </div>
+        </div>
       </div>
       <div>
         {findDeckById ? (

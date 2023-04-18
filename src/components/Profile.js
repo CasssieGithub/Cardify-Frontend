@@ -1,4 +1,3 @@
-import "./Profile.css";
 import Deck from "./Deck";
 import Edit from "./Edit";
 import "./Home.css";
@@ -7,7 +6,6 @@ import Add from "./Add";
 import { Link } from "react-router-dom";
 import DeckView from "./DeckView";
 import Filter from "./Filter";
-
 
 const Profile = (props) => {
   return (
@@ -31,35 +29,37 @@ const Profile = (props) => {
                 <img src="" id=""></img>
                 <h3>User name</h3>
                 <h6>edit profile</h6>
+                <hr />
               </div>
-              <hr />
               <Filter decks={props.decks} />
-              <hr />
-              <div className="deckSidebar">
-                <img className="subjectLogo" src="./subjects/search.svg" />
-                <h5>Search Bar Section</h5>
+              <div>
+                <hr />
+                <div className="deckSidebar">
+                  <img className="subjectLogo" src="./subjects/search.svg" />
+                  <h5>Search Bar Section</h5>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div className="workSpace">
-          <Add getDecks={props.getDecks} />
-          {/* {props.cards.map((card) => {
+            <div className="workSpace">
+              <Add getDecks={props.getDecks} />
+              {/* {props.cards.map((card) => {
             return <Card getCards={props.getCards} card={card} />;
           })} */}
-          <div className="decks">
-            {props.decks.map((deck) => {
-              return (
-                <div>
-                  <div className="deck" key={deck.id}>
-                    <Link to={`/deckView/${deck.id}`}>View decks</Link>
-                    <Deck getDecks={props.getDecks} deck={deck} />
-                    <Edit getDecks={props.getDecks} deck={deck} />
-                    {/* <DeckView getDecks={props.getDecks} deck={deck} /> */}
-                  </div>
-                </div>
-              );
-            })}
+              <div className="decks">
+                {props.decks.map((deck) => {
+                  return (
+                    <div>
+                      <div className="deck" key={deck.id}>
+                        <Link to={`/deckView/${deck.id}`}>View decks</Link>
+                        <Deck getDecks={props.getDecks} deck={deck} />
+                        <Edit getDecks={props.getDecks} deck={deck} />
+                        {/* <DeckView getDecks={props.getDecks} deck={deck} /> */}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
       </div>

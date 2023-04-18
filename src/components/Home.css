@@ -1,5 +1,5 @@
 .body {
-  background-image: url("/Users/youssefshabo/dev/Ollivanders/Projects/Project 4/Cardify_Frontend/public/landing.webp");
+  background-image: url("../../public/landing.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -29,7 +29,7 @@
   color: white;
   text-align: justify;
 }
-.CAT {
+.CTA {
   background-color: #ffcd55;
   border-radius: 50px;
   border: 1px solid white;

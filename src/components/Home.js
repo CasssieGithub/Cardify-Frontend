@@ -31,7 +31,7 @@ const Home = (props) => {
             gravida, purus quis sodales vestibulum, metus risus vulputate erat,
             nec condimentum risus lacus luctus lacus.
           </p>
-          <button className="CAT">
+          <button className="CTA">
             <Link className="link" to="/profile">
               <h1 className="navBarTxt">Profile page</h1>
             </Link>
@@ -41,7 +41,7 @@ const Home = (props) => {
       <footer>
         <div>
           <h2 id="contact">CONTACT</h2>
-          <dev id="footer">
+          <div id="footer">
             <div id="col">
               <h3>Cardify</h3>
               <p>1105 Claire ave,</p>
@@ -59,7 +59,7 @@ const Home = (props) => {
                 <input type="submit" />
               </form>
             </div>
-          </dev>
+          </div>
           <p id="footer">
             Cassandra Hernandez | Dominique Clark | Youssef Shabo © 2023
           </p>
