@@ -33,7 +33,7 @@ const Edit = (props) => {
         Edit Deck {deck.title}
       </button>
       {edit ? (
-        <form className="deckAdd" onSubmit={handleSubmit}>
+        <form className="deckEdit" onSubmit={handleSubmit}>
           <h3>Edit Deck {deck.title}</h3>
           <label htmlFor="title">Title: </label>
           <input

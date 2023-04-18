@@ -2,17 +2,17 @@ import "./Profile.css";
 import Deck from "./Deck";
 import Edit from "./Edit";
 import "./Home.css";
-import "./Profile.css";
 import Add from "./Add";
 import { Link } from "react-router-dom";
-// import DeckView from "./DeckView";
+import DeckView from "./DeckView";
+import Filter from "./Filter";
+
 
 const Profile = (props) => {
   return (
     <div>
       <div>
         <div className="header" onClick={props.getCards}>
-          <h1>Welcome to Cardify!</h1>
           <div className="navBar">
             <img className="logo" src="./Cardify.png" />
             <div className="navBarItems">
@@ -32,28 +32,7 @@ const Profile = (props) => {
                 <h6>edit profile</h6>
               </div>
               <hr />
-              <div className="decksSection">
-                <div className="deckSidebar">
-                  <img className="subjectLogo" src="./subjects/geometry.svg" />
-                  <h5>Geometry Deck</h5>
-                </div>
-                <div className="deckSidebar">
-                  <img className="subjectLogo" src="./subjects/atom.svg" />
-                  <h5>Chemistry Deck</h5>
-                </div>
-                <div className="deckSidebar">
-                  <img className="subjectLogo" src="./subjects/art.svg" />
-                  <h5>Arts Deck</h5>
-                </div>
-                <div className="deckSidebar">
-                  <img className="subjectLogo" src="./subjects/book.svg" />
-                  <h5>Literature Deck</h5>
-                </div>
-                <div className="deckSidebar">
-                  <img className="subjectLogo" src="./subjects/globe.svg" />
-                  <h5>Geography Deck</h5>
-                </div>
-              </div>
+              <Filter decks={props.decks} />
               <hr />
               <div className="seachSection">
                 <h5>Search Bar Section</h5>
