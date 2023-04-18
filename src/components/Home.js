@@ -61,7 +61,7 @@ const Home = (props) => {
             </div>
           </dev>
           <p id="footer">
-            Dominique Clark | Cassandra Hernandez | Youssef Shabo © 2023
+            Cassandra Hernandez | Dominique Clark | Youssef Shabo © 2023
           </p>
         </div>
       </footer>

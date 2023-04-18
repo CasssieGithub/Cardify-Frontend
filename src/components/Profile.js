@@ -4,6 +4,7 @@ import Deck from "./Deck";
 import AddCard from "./AddCard";
 import Edit from "./Edit";
 import "./Home.css";
+import "./Profile.css";
 import Add from "./Add";
 import { Link } from "react-router-dom";
 import DeckView from "./DeckView";
@@ -36,7 +37,8 @@ const Profile = (props) => {
               <hr />
               <Filter decks={props.decks} />
               <hr />
-              <div className="seachSection">
+              <div className="deckSidebar">
+                <img className="subjectLogo" src="./subjects/search.svg" />
                 <h5>Search Bar Section</h5>
               </div>
             </div>

@@ -1,7 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import Deck from "./Deck";
-import Add from "./Add";
 
 const Filter = ({ decks }) => {
   //   const [decks, setDecks] = useState([]);
@@ -43,10 +41,7 @@ const Filter = ({ decks }) => {
 
           <ul>
             {filteredDecks.length > 0
-              ? filteredDecks.map((deck, index) => {
-                  <li key={index}>{deck}</li>;
-                  <Deck deck={deck} />;
-                })
+              ? filteredDecks.map((deck, index) => <li key={index}>{deck}</li>)
               : decks.map((deck, index) => <li key={index}>{deck.title}</li>)}
           </ul>
         </div>
