@@ -1,11 +1,11 @@
 .fullbody{
     display: flex;
     flex-direction: row;
-}
-.sidebar{
+    margin: 0;
     font-family: 'Chivo_Mono';
     color: rgb(70, 70, 70);
-    min-width: 150px;
+}
+.sidebar{
     width: 15%;
     background-color: rgb(218, 218, 218);
     min-height: 90vh;
@@ -29,11 +29,36 @@
     display: flex;
 
 }
-.decks{
-    min-height: 200px;
-    background-color: aquamarine;
+.deckAdd{
+    width: 25%;
+    padding: 1% 10%;
+    background-color: #f3eeda;
+    text-align: center;
+    border-radius: 20px;
+    border: 5px solid white;
+    display: flex;
+    flex-direction: column;
+    margin: 5%;
+    box-shadow: 2px 2px 7px grey;
+}
+.deckEdit{
+    display: flex;
+    flex-direction: column;
 }
 .deck{
-    min-height: 200px;
-    background-color: rgb(255, 240, 127);
+    width: 20%;
+    padding: 3% 2%;
+    margin: 2%;
+    background-color: #f3eeda;
+    text-align: center;
+    border-radius: 20px;
+    border: 5px solid white;
+    box-shadow: 2px 2px 7px grey;
+}
+.decks{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
 }
