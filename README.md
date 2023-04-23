@@ -6,16 +6,19 @@ Table of contents:
 - Description
 - Pictures
 - Technology Used
-- How to start
+- Installation Instructions
+
 
 
 Description:
 Flashcards have been an effective study tool for a long time. Thus, the creation of our app, Cardify. This site was built to help people study using flashcards. This app was built for users of all ages. In this app, you have the ability to create, edit and delete your deck. You could also add and delete  cards from your deck. 
 
 
+
 Pictures:
 
 *** will add photos later ***
+
 
 
 Technology Used:
@@ -26,7 +29,8 @@ Technology Used:
 5. CSS
 
 
-How to start:
+
+Installation Instructions:
 1. Clone my repository git@github.com:CasssieGithub/Cardify-Frontend.git
 2. cd into Cardify_Frontend
 3. npm install
