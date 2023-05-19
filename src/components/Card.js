@@ -33,32 +33,30 @@ const Card = (props) => {
   };
 
   return (
-    <div class="cardsDisplay">
-      <div className="card-container">
-        <div
-          className={`card ${props.card.id} ${flipped ? "flipped" : ""}`}
-          onClick={handleClick}
-        >
-          <div className="card-front">
-            <div className="answers">
-              <h6>Question:</h6>
-            </div>
-            <h3>{props.card.question}</h3>
+    <div className="card-container">
+      <div
+        className={`card ${props.card.id} ${flipped ? "flipped" : ""}`}
+        onClick={handleClick}
+      >
+        <div className="card-front">
+          <div className="answers">
+            <h6>Question:</h6>
           </div>
-          <div className="card-back">
-            <div className="answers">
-              <h6>Answer:</h6>{" "}
-            </div>
-            <h3 className="answerTxt">{props.card.answer}</h3>
-            <img className="answerImg" src={props.card.image} alt="" />
+          <h3>{props.card.question}</h3>
+        </div>
+        <div className="card-back">
+          <div className="answers">
+            <h6>Answer:</h6>{" "}
+          </div>
+          <h3 className="answerTxt">{props.card.answer}</h3>
+          <img className="answerImg" src={props.card.image} alt="" />
 
-            <div className="trashIcon">
-              <img
-                className="trashCan"
-                src="../delete.png"
-                onClick={handleDelete}
-              />
-            </div>
+          <div className="trashIcon">
+            <img
+              className="trashCan"
+              src="../delete.png"
+              onClick={handleDelete}
+            />
           </div>
         </div>
       </div>

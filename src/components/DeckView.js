@@ -39,9 +39,11 @@ const DeckView = (props) => {
         {findDeckById ? (
           <div>
             <AddCard findDeckById={findDeckById} getCards={props.getCards} />
-            {findCardsByUserId.map((card) => {
-              return <Card getCards={props.getCards} card={card} />;
-            })}
+            <div className="card-display">
+              {findCardsByUserId.map((card) => {
+                return <Card getCards={props.getCards} card={card} />;
+              })}
+            </div>
           </div>
         ) : (
           <>Loading...</>
