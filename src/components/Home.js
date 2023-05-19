@@ -18,18 +18,18 @@ const Home = (props) => {
       </div>
       <div className="body">
         <div className="landingBodyTxt">
-          <h2 className="title">The Best Flashcards out there!</h2>
+          <h4 className="title">Introducing Cardify:</h4>
+          <h2 className="title">
+            The Perfect App for Custom Flashcards and Organized Learning!
+          </h2>
           <p className="paragraph">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-            mollis imperdiet facilisis. Aenean eu pulvinar nibh. Ut ac malesuada
-            mi, vitae interdum sapien. Praesent et molestie mauris. Integer
-            ultrices tellus et convallis laoreet. Nulla tempus sapien id neque
-            congue, ut sagittis sapien mollis. Ut scelerisque ipsum eget
-            convallis pulvinar. Interdum et malesuada fames ac ante ipsum primis
-            in faucibus. Curabitur non eros venenatis, aliquam velit a,
-            elementum nibh. Phasellus a posuere mi, quis iaculis justo. Fusce
-            gravida, purus quis sodales vestibulum, metus risus vulputate erat,
-            nec condimentum risus lacus luctus lacus.
+            Cardify is the ultimate app for creating and organizing your own
+            personalized flashcards. Whether you're a student, professional, or
+            simply eager to expand your knowledge, Cardify empowers you to take
+            control of your learning journey. With its user-friendly interface,
+            you can effortlessly create custom cards and organize them into
+            separate decks based on subjects, chapters, or any other
+            categorization that suits your needs.
           </p>
           <button className="CTA">
             <Link className="link" to="/profile">

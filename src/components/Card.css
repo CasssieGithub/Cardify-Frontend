@@ -1,6 +1,11 @@
+.cardsDisplay{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+}
 .card-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     font-size: 25px;
     font-weight: bold;
     width: 500px;
@@ -50,8 +55,12 @@
     color: #0a5a83;
     background: #ffcd55;
 }
+.answerTxt{
+    margin-left: 4%;
+}
 .answerImg{
-    width: 100px;
+    width: 140px;
+    margin-right: 4%;
 }
 .card.flipped {
     transform: rotateY(180deg);
